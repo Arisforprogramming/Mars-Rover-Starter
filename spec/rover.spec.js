@@ -15,6 +15,7 @@ describe("Rover class", function () {
   });
   //Test 8
   test("response returned by receiveMessage contains the name of the message", function () {
+    let testWord = "I gonna test this";
     let commands = [
       new Command("MODE_CHANGE", "LOW_POWER"),
       new Command("STATUS_CHECK"),
@@ -22,8 +23,8 @@ describe("Rover class", function () {
     let message = new Message("Test message", commands);
     let rover = new Rover(10); // Passes 10 as the rover's position.
     //calls the receiveMessage method of the Rover class and captures the result (or response)
-    let response = rover.receiveMessage(message);
-    expect(response.name).toBe("Test message");
+    let response = rover.receiveMessage(testWord);
+    expect(response.message).toBe(testWord);
   });
   //Test 9
   test("response returned by receiveMessage includes two results if two commands are sent in the message", function () {
@@ -45,7 +46,8 @@ describe("Rover class", function () {
   //Test 10
   test("responds correctly to the status check command", function () {
     let rover = new Rover(10); // Passes 10 as the rover's position.
-    console.log('This is Rover',rover)
+     console.log('This is Rover',rover)
+    //console.log('This is Newer Rover',rover)
     let commands = [new Command("STATUS_CHECK")];
     let message = new Message("Test message", commands);
     let response = rover.receiveMessage(message);

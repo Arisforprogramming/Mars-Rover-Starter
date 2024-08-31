@@ -12,20 +12,14 @@ class Rover {
   receiveMessage(message) {
     //“response returned by receiveMessage includes two results if two commands are sent in the message 
     let results = message.commands
+    // console.log("wannan see ", message)
+    // if (results === 'STATUS_CHECK') {
 
-    if (results === 'STATUS_CHECK') {
+    // }
 
-    }
-    console.log(this)
     return {
       message: message,
-      results: [{
-        roverStatus: this
-          // position: this.position,
-          // mode: this.mode,
-          // generatorWatts: this.generatorWatts,
-        
-      }]
+      results: results
     }
   }
 }
