@@ -38,6 +38,7 @@ describe("Rover class", function () {
     console.log('This is message',message)
     //console.log('This is response',response)
     expect(response.results.length).toBe(2);
+    console.log("test")
 
     //expect(response.results[0].completed).toBeTrue(); //checked if first commands complete 
   });
