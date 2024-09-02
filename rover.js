@@ -4,16 +4,7 @@ class Rover {
         this.mode = 'NORMAL',
         this.generatorWatts = 110
   }
-  // Write code here!
-  /*receiveMessage(message){
-  console.log(message);
-    let setMessage = {
-        message : message.name,
-        results : []
-    }
-    //This is where I need to process the message command
-    return setMessage;
-  }*/
+  
   //taking command from  messages parameter suppose to return status depends on command types and the value is 
   receiveMessage(Message) {
      let newCommands = []
@@ -30,7 +21,7 @@ class Rover {
                  position: this.position
               }
            })
-
+    // handles Move command type if it is low power then rover can't be move to new position otherwise successed to be proceeded 
         } else if (Message.commands[i].commandType === 'MOVE') {
            // if the  mode is low power then push the false to the new commands
            if (this.mode === 'LOW_POWER') {
@@ -43,7 +34,9 @@ class Rover {
                  completed: true
               })
            }
-
+         //handles mode changed command all commands that didn't get covered from earlier condiation 
+         //if commands value == to lower power using .notation to access each index of the commands value if rover mod is lowpower then rover mode is set to lowpower 
+         //otherwise mode set to normal and the rover status completed set to true got push to new command array as well
         } else {
            if (Message.commands[i].value === 'LOW_POWER') {
 

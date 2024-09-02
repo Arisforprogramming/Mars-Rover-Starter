@@ -33,6 +33,7 @@ describe("Rover class", function() {
     let message = new Message('Test message', commands)
     let rover = new Rover(10)
     let response = rover.receiveMessage(message)
+    let results = commands
 
     expect(response.results.length).toEqual(2)
   })
